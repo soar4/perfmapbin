@@ -15,7 +15,7 @@ func (a ByTag) Less(i, j int) bool { return a[i].Tag < a[j].Tag }
 
 const (
 	dataSetSize = 100
-	dataSize    = 16
+	dataSize    = 1
 )
 
 var (

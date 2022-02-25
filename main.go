@@ -22,8 +22,9 @@ func main() {
 		idx := i % len(dataset)
 		k := dataset[idx]
 		binIdx := sort.SearchStrings(dataset, k)
-		if binIdx != idx {
-			log.Printf("[%d] %s Not-Found at [%d]\n", idx, k, binIdx)
+
+		if dataset[binIdx] != dataset[idx] {
+			log.Printf("[%d][%s] Not-Found [%d][%s]\n", idx, k, binIdx, dataset[binIdx])
 		}
 	}
 

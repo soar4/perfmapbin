@@ -13,8 +13,8 @@ func BenchmarkBinSeach(b *testing.B) {
 		idx := i % len(dataset)
 		k := dataset[idx]
 		binIdx := sort.SearchStrings(dataset, k)
-		if binIdx != idx {
-			b.Errorf("[%d] %s Not-Found\n", idx, k)
+		if dataset[binIdx] != dataset[idx] {
+			b.Errorf("[%d][%s] Not-Found [%d][%s]\n", idx, k, binIdx, dataset[binIdx])
 		}
 	}
 }
@@ -29,7 +29,7 @@ func BenchmarkMapSeach(b *testing.B) {
 		idx := i % len(dataset)
 		k := dataset[idx]
 		if _, ok := dataMap[k]; !ok {
-			b.Errorf("[%d] %s Not-Found\n", idx, k)
+			b.Errorf("[%d][%s] Not-Found\n", idx, k)
 		}
 	}
 }
